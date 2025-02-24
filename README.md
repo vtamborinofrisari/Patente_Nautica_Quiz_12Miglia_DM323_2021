@@ -13,4 +13,4 @@ Funzionamento del Simulatore:
 - il quiz presenta 20 domande con tre risposte possibili, all'avvio parte il timer di 30 minuti visibile all'inizio della lista di domande, 
 - è possibile cliccare il tasto "Vedi/Nascondi risposte" per vedere o nascondere le risposte corrette alle domande, le risposte appaiono sotto alla domanda stessa evidenziate in colore blu, 
 - è possibile cliccare il tasto "Conferma risposte" per visualizzare il risultato del test(N.B. è necessario rispondere a tutte le domande per ottenere il risultato), 
-- è possibile cliccare il tasto "Nuovo Test" per avviare un altra prova simulata
+- è possibile cliccare il tasto "Nuovo Test" per avviare un'altra prova simulata
