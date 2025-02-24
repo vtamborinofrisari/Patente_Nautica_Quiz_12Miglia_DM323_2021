@@ -11,7 +11,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 let questions_count= 20;  // 20
 let passed_score = 16;  // 16
-let start_time_quiz = 20 //1800
+let start_time_quiz = 1800 //1800
 
 const questions_1_1 = [
 { id: `1.1.1.1`, text: `Com'è denominata la massima lunghezza dell'unità navale ,cioè quella misurata tra le estremità prodiera e poppiera?`, optionA: `lunghezza tra le perpendicolari.`, optionB: `lunghezza al galleggiamento.`, optionC: `lunghezza fuori tutto.`, correctAnswer: `C`, image_1: ``, image_2: ``, image_3: `` },
