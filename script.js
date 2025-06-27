@@ -1522,7 +1522,7 @@ let alert_time;
 
 let toggle_answers_view = false;
 
-if (! answers_submitted) {
+if (!answers_submitted) {
   var x = setInterval(function() {
   
     time_quiz = time_quiz -1;
