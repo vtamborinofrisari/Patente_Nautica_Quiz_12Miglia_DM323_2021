@@ -1522,9 +1522,8 @@ let alert_time;
 
 let toggle_answers_view = false;
 
+var x = setInterval(function() {
 if (!answers_submitted) {
-  var x = setInterval(function() {
-  
     time_quiz = time_quiz -1;
   
     // Time calculations for days, hours, minutes and seconds
@@ -1545,8 +1544,8 @@ if (!answers_submitted) {
       }
       time_valid = false
     }
-  }, 1000);
 }
+}, 1000);
 
 // Function to start the quiz
 document.getElementById("start-button").addEventListener("click", function () {
@@ -1555,7 +1554,7 @@ document.getElementById("start-button").addEventListener("click", function () {
     this.style.display = "none";
     time_quiz = start_time_quiz;
     time_valid = true;
-    answer_submitted = false;
+    answers_submitted = false;
     toggle_answers_view = false;
     alert_time = false;
     
