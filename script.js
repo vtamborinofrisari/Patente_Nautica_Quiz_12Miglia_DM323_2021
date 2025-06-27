@@ -1508,37 +1508,45 @@ const questions_1_8 = [
 { id: `1.8.2.142`, text: `Nelle aree marine protette dove l'ormeggio è regolamentato tramite campi boe:`, optionA: `nei campi boe l'ancoraggio è consentito dall'alba al tramonto.`, optionB: `nei campi boe l'ancoraggio è consentito solo se c'è sufficiente spazio di manovra.`, optionC: `nei campi boe l'ancoraggio non è mai consentito.`, correctAnswer: `C`, image_1: ``, image_2: ``, image_3: `` },
 ];
 
+function getRandomElements(arr, n) {
+  const shuffled = [...arr].sort(() => 0.5 - Math.random()); // shallow copy + shuffle
+  return shuffled.slice(0, n);
+}
+
 let correct_answers = [
 ];
 let time_valid = true;
+let answers_submitted = false;
 let time_quiz = start_time_quiz;
 let alert_time;
 
 let toggle_answers_view = false;
 
-var x = setInterval(function() {
-
-  time_quiz = time_quiz -1;
-
-  // Time calculations for days, hours, minutes and seconds
-  var minutes = Math.floor(time_quiz/60);
-  var seconds = Math.floor(time_quiz%60) < 10 ? "0" + Math.floor(time_quiz%60) : Math.floor(time_quiz%60);
-
-  // Display the result in the element with id="time"
-  document.getElementById("time").style.color = "green";
-  document.getElementById("time").textContent =  "Tempo rimanente: " + minutes + " : " + seconds;
-
-  // If the count down is finished, write some text
-  if (time_quiz <= 0) {
-    document.getElementById("time").style.color = "red";
-    document.getElementById("time").innerHTML = "TEMPO SCADUTO";
-    if (alert_time === false) {
-        window.alert("Tempo scaduto");
-        alert_time = true;
+if (! answers_submitted) {
+  var x = setInterval(function() {
+  
+    time_quiz = time_quiz -1;
+  
+    // Time calculations for days, hours, minutes and seconds
+    var minutes = Math.floor(time_quiz/60);
+    var seconds = Math.floor(time_quiz%60) < 10 ? "0" + Math.floor(time_quiz%60) : Math.floor(time_quiz%60);
+  
+    // Display the result in the element with id="time"
+    document.getElementById("time").style.color = "green";
+    document.getElementById("time").textContent =  "Tempo rimanente: " + minutes + " : " + seconds;
+  
+    // If the count down is finished, write some text
+    if (time_quiz <= 0) {
+      document.getElementById("time").style.color = "red";
+      document.getElementById("time").innerHTML = "TEMPO SCADUTO";
+      if (alert_time === false) {
+          window.alert("Tempo scaduto");
+          alert_time = true;
+      }
+      time_valid = false
     }
-    time_valid = false
-  }
-}, 1000);
+  }, 1000);
+}
 
 // Function to start the quiz
 document.getElementById("start-button").addEventListener("click", function () {
@@ -1547,6 +1555,7 @@ document.getElementById("start-button").addEventListener("click", function () {
     this.style.display = "none";
     time_quiz = start_time_quiz;
     time_valid = true;
+    answer_submitted = false;
     toggle_answers_view = false;
     alert_time = false;
     
@@ -1554,14 +1563,14 @@ document.getElementById("start-button").addEventListener("click", function () {
     const questionContainer = document.getElementById("questions");
     questionContainer.innerHTML = "";
 
-    let selectedQuestions_1_1 = questions_1_1.sort(() => 0.5 - Math.random()).slice(0, 1);
-    let selectedQuestions_1_2 = questions_1_2.sort(() => 0.5 - Math.random()).slice(0, 1);
-    let selectedQuestions_1_3 = questions_1_3.sort(() => 0.5 - Math.random()).slice(0, 3);
-    let selectedQuestions_1_4 = questions_1_4.sort(() => 0.5 - Math.random()).slice(0, 4);
-    let selectedQuestions_1_5 = questions_1_5.sort(() => 0.5 - Math.random()).slice(0, 2);
-    let selectedQuestions_1_6 = questions_1_6.sort(() => 0.5 - Math.random()).slice(0, 2);
-    let selectedQuestions_1_7 = questions_1_7.sort(() => 0.5 - Math.random()).slice(0, 4);
-    let selectedQuestions_1_8 = questions_1_8.sort(() => 0.5 - Math.random()).slice(0, 3);
+    let selectedQuestions_1_1 = getRandomElemnts(questions_1_1, 1);
+    let selectedQuestions_1_2 = getRandomElemnts(questions_1_2, 1);
+    let selectedQuestions_1_3 = getRandomElemnts(questions_1_3, 3);
+    let selectedQuestions_1_4 = getRandomElemnts(questions_1_4, 4);
+    let selectedQuestions_1_5 = getRandomElemnts(questions_1_5, 2);
+    let selectedQuestions_1_6 = getRandomElemnts(questions_1_6, 2);
+    let selectedQuestions_1_7 = getRandomElemnts(questions_1_7, 4);
+    let selectedQuestions_1_8 = getRandomElemnts(questions_1_8, 3);
     
     let selectedQuestions = selectedQuestions_1_1 .concat(selectedQuestions_1_2) .concat(selectedQuestions_1_3).concat(selectedQuestions_1_4).concat(selectedQuestions_1_5).concat(selectedQuestions_1_6).concat(selectedQuestions_1_7).concat(selectedQuestions_1_8);
     correct_answers = [];
@@ -1611,6 +1620,7 @@ document.getElementById("submit-button").addEventListener("click", function () {
     let score = 0;
     let answered = 0;
     let result_text = ``
+    answer_submitted = true;
     
     if  (time_valid === true) {
         answers.forEach((answer, index) => {
