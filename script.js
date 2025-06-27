@@ -1563,14 +1563,14 @@ document.getElementById("start-button").addEventListener("click", function () {
     const questionContainer = document.getElementById("questions");
     questionContainer.innerHTML = "";
 
-    let selectedQuestions_1_1 = getRandomElemnts(questions_1_1, 1);
-    let selectedQuestions_1_2 = getRandomElemnts(questions_1_2, 1);
-    let selectedQuestions_1_3 = getRandomElemnts(questions_1_3, 3);
-    let selectedQuestions_1_4 = getRandomElemnts(questions_1_4, 4);
-    let selectedQuestions_1_5 = getRandomElemnts(questions_1_5, 2);
-    let selectedQuestions_1_6 = getRandomElemnts(questions_1_6, 2);
-    let selectedQuestions_1_7 = getRandomElemnts(questions_1_7, 4);
-    let selectedQuestions_1_8 = getRandomElemnts(questions_1_8, 3);
+    let selectedQuestions_1_1 = getRandomElements(questions_1_1, 1);
+    let selectedQuestions_1_2 = getRandomElements(questions_1_2, 1);
+    let selectedQuestions_1_3 = getRandomElements(questions_1_3, 3);
+    let selectedQuestions_1_4 = getRandomElements(questions_1_4, 4);
+    let selectedQuestions_1_5 = getRandomElements(questions_1_5, 2);
+    let selectedQuestions_1_6 = getRandomElements(questions_1_6, 2);
+    let selectedQuestions_1_7 = getRandomElements(questions_1_7, 4);
+    let selectedQuestions_1_8 = getRandomElements(questions_1_8, 3);
     
     let selectedQuestions = selectedQuestions_1_1 .concat(selectedQuestions_1_2) .concat(selectedQuestions_1_3).concat(selectedQuestions_1_4).concat(selectedQuestions_1_5).concat(selectedQuestions_1_6).concat(selectedQuestions_1_7).concat(selectedQuestions_1_8);
     correct_answers = [];
