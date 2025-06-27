@@ -1620,7 +1620,7 @@ document.getElementById("submit-button").addEventListener("click", function () {
     let score = 0;
     let answered = 0;
     let result_text = ``
-    answer_submitted = true;
+    answers_submitted = true;
     
     if  (time_valid === true) {
         answers.forEach((answer, index) => {
